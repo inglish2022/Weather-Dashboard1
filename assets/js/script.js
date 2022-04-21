@@ -2,6 +2,9 @@ var apiKey = "bea9e28f4f996779db9819daf0338f11";
 var cityName=document.getElementById('cityName');
 var searchButton=document.getElementById('search-button');
 var temp = document.getElementById('temp')
+var humidity = document.getElementById('humidity');
+var wind_speed = document.getElementById('wind-speed');
+var uvIndex = document.getElementById('uv-index');
 
 
 function currentWeather(city)  {
@@ -30,8 +33,11 @@ function oneCall(lat, lon)  {
         console.log(data)
 
         temp.textContent = "Temp: " + data.current.temp + "F";
+        humidity.textContent = "Humidity: " + data.current.humidity;
+        wind_speed.textContent = "Wind Speed: " + data.current.wind_speed;
+        uvIndex.textContent = "" + data.current.uvi;
 
-var tomoroow = data.daily[1].temp.day;
+var tomorow = data.daily[1].temp.day;
 
 
 
