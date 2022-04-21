@@ -5,7 +5,7 @@ var temp = document.getElementById('temp')
 var humidity = document.getElementById('humidity');
 var wind_speed = document.getElementById('wind-speed');
 var uvIndex = document.getElementById('uv-index');
-
+var forecastContainerEl = document.getElementById('forecast-panel')
 
 function currentWeather(city)  {
     var apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
