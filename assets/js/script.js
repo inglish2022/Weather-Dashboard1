@@ -5,7 +5,11 @@ var temp = document.getElementById('temp')
 var humidity = document.getElementById('humidity');
 var wind_speed = document.getElementById('wind-speed');
 var uvIndex = document.getElementById('uv-index');
-var forecastContainerEl = document.getElementById('forecast-panel')
+// var forecastContainerEl = document.getElementById('forecast-panel')
+var searchEl=document.getElementById('search-button');
+
+
+
 
 function currentWeather(city)  {
     var apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
@@ -33,8 +37,8 @@ function oneCall(lat, lon)  {
         console.log(data)
 
         temp.textContent = "Temp: " + data.current.temp + "F";
-        humidity.textContent = "Humidity: " + data.current.humidity;
-        wind_speed.textContent = "Wind Speed: " + data.current.wind_speed;
+        humidity.textContent = "Humidity: " + data.current.humidity + '%';
+        wind_speed.textContent = "Wind Speed: " + data.current.wind_speed + " mph";
         uvIndex.textContent = "" + data.current.uvi;
 
 var tomorow = data.daily[1].temp.day;
