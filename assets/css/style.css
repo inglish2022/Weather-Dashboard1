@@ -50,3 +50,26 @@ section {
     padding-left: 10px;
     padding-bottom: 30px;
 } 
+
+.favorable {
+    background-color: green;
+    color: white;
+}
+
+.moderate {
+    background-color: yellow;
+    color: black;
+}
+
+.severe {
+    background-color: red;
+    color: white;
+}
+
+#uv-index {
+    margin-left: 5px;
+    padding: 5px 10px;
+}
+
+
+
