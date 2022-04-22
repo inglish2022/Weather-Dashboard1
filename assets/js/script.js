@@ -7,13 +7,37 @@ var wind_speed = document.getElementById('wind-speed');
 var uvIndex = document.getElementById('uv-index');
 // var forecastContainerEl = document.getElementById('forecast-panel')
 // var searchEl = document.getElementById('search-button');
+var day1 = document.getElementById('day-0');
+var day1Img = document.getElementById("img-0");
+var day1temp = document.getElementById('temp-0');
+var day1humidity = document.getElementById('hum-0');
+var day1wind_speed = document.getElementById('wind-0');
+var day2 = document.getElementById('day-1');
+var day2Img = document.getElementById("img-1");
+var day2temp = document.getElementById('temp-1');
+var day2humidity = document.getElementById('hum-1')
+var day2wind_speed = document.getElementById('wind-1')
+var day3 = document.getElementById('day-2');
+var day3Img = document.getElementById("img-2");
+var day3temp = document.getElementById('temp-2');
+var day3humidity = document.getElementById('hum-2')
+var day3wind_speed = document.getElementById('wind-2')
+var day4 = document.getElementById('day-3');
+var day4Img = document.getElementById("img-3");
+var day4temp = document.getElementById('temp-3');
+var day4humidity = document.getElementById('hum-3')
+var day4wind_speed = document.getElementById('wind-3')
+var day5 = document.getElementById('day-4');
+var day5Img = document.getElementById("img-4");
+var day5temp = document.getElementById('temp-4');
+var day5humidity = document.getElementById('hum-4')
+var day5wind_speed = document.getElementById('wind-4')
 
-let today = function timeStamp (){
+let today = function timeStamp() {
     $('#currentDay').text(`${moment().format('MMMM Do YYYY, h:mm a')}`);
-    };
-    today();
-//setInterval function to update every second so the today function keeps updating
-    setInterval(today, 1000);
+};
+today();
+setInterval(today, 1000);
 
 
 function currentWeather(city) {
@@ -57,11 +81,28 @@ function oneCall(lat, lon) {
                 $("#uv-index").addClass("severe");
             }
 
-            var tomorrow = data.daily[1].temp.day;
-            temp.textContent = 'Temp' + data.daily.temp.day + "F";
-            humidity.textContent = 'Humidity' + data.daily.humidity + "%";
             
-            
+            // day1Img.textContent = data.daily[1].weather;
+            day1temp.textContent = 'Temp: ' + data.daily[1].temp.day + "F";
+            day1wind_speed.textContent = 'Wind: ' + data.daily[1].wind_speed + " mph";
+            day1humidity.textContent = 'Humidity: ' + data.daily[1].humidity + "%";
+
+            day2temp.textContent = 'Temp: ' + data.daily[2].temp.day + "F";
+            day2wind_speed.textContent = 'Wind: ' + data.daily[2].wind_speed + " mph";
+            day2humidity.textContent = 'Humidity: ' + data.daily[2].humidity + "%";
+
+            day3temp.textContent = 'Temp: ' + data.daily[3].temp.day + "F";
+            day3wind_speed.textContent = 'Wind: ' + data.daily[3].wind_speed + " mph";
+            day3humidity.textContent = 'Humidity: ' + data.daily[3].humidity + "%";
+
+            day4temp.textContent = 'Temp: ' + data.daily[4].temp.day + "F";
+            day4wind_speed.textContent = 'Wind: ' + data.daily[4].wind_speed + " mph";
+            day4humidity.textContent = 'Humidity: ' + data.daily[4].humidity + "%";
+
+            day5temp.textContent = 'Temp: ' + data.daily[5].temp.day + "F";
+            day5wind_speed.textContent = 'Wind: ' + data.daily[5].wind_speed + " mph";
+            day5humidity.textContent = 'Humidity: ' + data.daily[5].humidity + "%";
+
 
 
 
@@ -77,6 +118,7 @@ function oneCall(lat, lon) {
         })
 }
 
+// day1Img.setAttribute("src", "the link to the picture from your data");
 
 
 searchButton.addEventListener('click', function (event) {
