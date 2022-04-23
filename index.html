@@ -27,8 +27,10 @@
                     <div class="form-row align-items-center">
                         <div class="col-3 search-field">
                             <label class="sr-only" for="cityName">City</label>
-                            <input type="text" class="form-control" id="cityName" placeholder="ENTER CITY HERE">
+                            <input type="text" class="form-control" id="cityName" placeholder="ENTER CITY ">
                         </div>
+
+                        
                         <button type="submit" class="btn btn-primary" id="search-button">Search
                         </button>
                     </div>
@@ -46,7 +48,8 @@
         <section class="results">
             <div class="current-conditions">
                 <div class="name-block">
-                    <h3 id="currentDay">Today's Weather</h3>
+                    <h4 id="currentDay">Today's Weather</h4>
+                    <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
                     <img src="" alt="" id="currentIcon">
                 </div>
                 <div>
@@ -78,6 +81,7 @@
                                 </div>
                                 <div class="card-body">
                                     <img src="" alt="" id="img-0">
+                                    <p class="card-text" id="day-0"></p>
                                     <p class="card-text" id="temp-0"></p>
                                     <p class="card-text" id="wind-0"></p>
                                     <p class="card-text" id="hum-0"></p>
@@ -92,6 +96,7 @@
                                 </div>
                                 <div class="card-body">
                                     <img src="" alt="" id="img-1">
+                                    <p class="card-text" id="day-1"></p>
                                     <p class="card-text" id="temp-1"></p>
                                     <p class="card-text" id="wind-1"></p>
                                     <p class="card-text" id="hum-1"></p>
@@ -106,6 +111,7 @@
                                 </div>
                                 <div class="card-body">
                                     <img src="" alt="" id="img-2">
+                                    <p class="card-text" id="day-2"></p>
                                     <p class="card-text" id="temp-2"></p>
                                     <p class="card-text" id="wind-2"></p>
                                     <p class="card-text" id="hum-2"></p>
@@ -120,6 +126,7 @@
                                 </div>
                                 <div class="card-body">
                                     <img src="" alt="" id="img-3">
+                                    <p class="card-text" id="day-3"></p>
                                     <p class="card-text" id="temp-3"></p>
                                     <p class="card-text" id="wind-3"></p>
                                     <p class="card-text" id="hum-3"></p>
@@ -134,6 +141,7 @@
                                 </div>
                                 <div class="card-body">
                                     <img src="" alt="" id="img-4">
+                                    <p class="card-text" id="day-4"></p>
                                     <p class="card-text" id="temp-4"></p>
                                     <p class="card-text" id="wind-4"></p>
                                     <p class="card-text" id="hum-4"></p>

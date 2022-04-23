@@ -1,13 +1,14 @@
 var apiKey = "bea9e28f4f996779db9819daf0338f11";
 var cityName = document.getElementById('cityName');
 var searchButton = document.getElementById('search-button');
+var icon = document.getElementById('currentIcon');
 var temp = document.getElementById('temp')
 var humidity = document.getElementById('humidity');
 var wind_speed = document.getElementById('wind-speed');
 var uvIndex = document.getElementById('uv-index');
-// var forecastContainerEl = document.getElementById('forecast-panel')
+var currentCity = document.getElementById('curren-city');
 // var searchEl = document.getElementById('search-button');
-var day1 = document.getElementById('day-0');
+var day1date = document.getElementById('day-0');
 var day1Img = document.getElementById("img-0");
 var day1temp = document.getElementById('temp-0');
 var day1humidity = document.getElementById('hum-0');
@@ -32,6 +33,8 @@ var day5Img = document.getElementById("img-4");
 var day5temp = document.getElementById('temp-4');
 var day5humidity = document.getElementById('hum-4')
 var day5wind_speed = document.getElementById('wind-4')
+
+
 
 let today = function timeStamp() {
     $('#currentDay').text(`${moment().format('MMMM Do YYYY, h:mm a')}`);
@@ -58,13 +61,15 @@ function currentWeather(city) {
 
 function oneCall(lat, lon) {
     var apiURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + apiKey;
+    // var icon = data.current.weather[0].icon;
+    // var iconURL = "https://openweathermap.org/img/wn/"+ icon +"@2x.png";
     fetch(apiURL)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
             console.log(data)
-
+            
             temp.textContent = "Temp: " + data.current.temp + "F";
             humidity.textContent = "Humidity: " + data.current.humidity + '%';
             wind_speed.textContent = "Wind Speed: " + data.current.wind_speed + " mph";
@@ -83,6 +88,11 @@ function oneCall(lat, lon) {
 
             
             // day1Img.textContent = data.daily[1].weather;
+            // day1.textContent = new Date((response.list[((i+1)*8)-1].dt)*1000)
+            const day1= moment().add(1, 'days');
+
+            console.log(day1.format('MMMM Do YYYY'))
+            day1 = moment().add(1, 'days');
             day1temp.textContent = 'Temp: ' + data.daily[1].temp.day + "F";
             day1wind_speed.textContent = 'Wind: ' + data.daily[1].wind_speed + " mph";
             day1humidity.textContent = 'Humidity: ' + data.daily[1].humidity + "%";
@@ -103,7 +113,7 @@ function oneCall(lat, lon) {
             day5wind_speed.textContent = 'Wind: ' + data.daily[5].wind_speed + " mph";
             day5humidity.textContent = 'Humidity: ' + data.daily[5].humidity + "%";
 
-
+            
 
 
 
@@ -118,6 +128,15 @@ function oneCall(lat, lon) {
         })
 }
 
+function addToList(c){
+                var listEl= $("<li>"+c.toUpperCase()+"</li>");
+                $(listEl).attribute("class","list-group-item");
+                $(listEl).attribute("data-value",c.toUpperCase());
+                $(".list-group").append(listEl);
+                
+            }
+            // var date=new Date(response.dt*1000).toLocaleDateString();
+        
 // day1Img.setAttribute("src", "the link to the picture from your data");
 
 
