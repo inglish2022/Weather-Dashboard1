@@ -9,7 +9,7 @@ var wind_speed = document.getElementById('wind-speed');
 var uvIndex = document.getElementById('uv-index');
 var currentIcon = document.getElementById('currentIcon')
 var currentCity = document.getElementById('current-city');
-// var searchEl = document.getElementById('search-button');
+
 var day1date = document.getElementById('day-0');
 var day1Desc = document.getElementById('day0Desc');
 var day1Img = document.getElementById("img-0");
@@ -57,6 +57,7 @@ today();
 setInterval(today, 1000);
 
 
+
 function currentWeather(city) {
     var apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
     fetch(apiURL)
@@ -75,21 +76,21 @@ function currentWeather(city) {
 
 function oneCall(lat, lon) {
     var apiURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + apiKey;
-    // var icon = data.current.weather[0].icon;
-    // var iconURL = "https://openweathermap.org/img/wn/"+ icon +"@2x.png";
+   
     fetch(apiURL)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
             console.log(data)
+           
             description.textContent = data.current.weather[0].description;
             temp.textContent = "Temp: " + data.current.temp + "F";
             humidity.textContent = "Humidity: " + data.current.humidity + '%';
             wind_speed.textContent = "Wind Speed: " + data.current.wind_speed + " mph";
             uvIndex.textContent = "" + data.current.uvi;
             var icon = "https://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png";
-           // var iconTL = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`;
+           
             currentIcon.setAttribute('src', icon);
 
             if (data.current.uvi < 3) {
@@ -104,8 +105,7 @@ function oneCall(lat, lon) {
             }
 
             
-            // day1Img.textContent = data.daily[1].weather;
-            // day1.textContent = new Date((response.list[((i+1)*8)-1].dt)*1000)
+           
             const day1= moment().add(1, 'days');
 
             console.log("moment test: ", moment().add(1, 'days').format('MMMM DD YYYY'))
@@ -171,9 +171,9 @@ function addToList(c){
                 $(".list-group").append(listEl);
                 
             }
-            // var date=new Date(response.dt*1000).toLocaleDateString();
+            
         
-// day1Img.setAttribute("src", "the link to the picture from your data");
+
 
 
 searchButton.addEventListener('click', function (event) {
@@ -205,12 +205,14 @@ function buildHistory(){
         // 3. Append to the page
         cityList.append(liEl)
 
-
+        $(document).on("click", "li", function() {
+            var listCity = $(this).text();
+            currentWeather(listCity);
+        });
 
 
         
-        //TO DO: Add click listener to list items so the pop up the weather 
-        // Hint: call currentWeather using value of button :)
+        
     })
 
     }
@@ -224,10 +226,7 @@ function buildHistory(){
     $('#clear-history').on('click', clearHistory)
     
 
-// $(document).on("click", ".list-group-item", function() {
-//     var listCity = $(this).text();
-//     currentCondition(listCity);
-// });
+
 
 
 

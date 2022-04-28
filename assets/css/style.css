@@ -2,21 +2,21 @@ body {
     margin: 20px;
 }
 
-main  {
-    display:flex;
-} 
+main {
+    display: flex;
+}
 
 section {
     margin-top: 20px;
 }
 
-.header  {
+.header {
     display: flex;
     justify-content: center;
     border-radius: 20px;
 }
 
-.search  {
+.search {
     width: 35%;
     margin: 10px 10px 0 10px;
     padding: 10px 0 10px 10px;
@@ -24,15 +24,19 @@ section {
     border-radius: 20px;
 }
 
-.card  {
+.card .list-group {
     background-color: rgb(104, 178, 178);
 }
 
-.search-button  {
+.card {
+    background-color: rgb(104, 178, 178);
+}
+
+.search-button {
     margin-left: 52px;
 }
 
-.city-list-box  {
+.city-list-box {
     margin-top: 5px;
 }
 
@@ -40,20 +44,20 @@ section {
     width: 89%;
 }
 
-.results  {
+.results {
     width: 75%;
     padding-bottom: 10px;
     /* visibility: hidden; */
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.current-conditions  {
+.current-conditions {
     border: 1px solid black;
     background-color: azure;
     border-radius: 10px;
     padding-left: 10px;
     padding-bottom: 30px;
-} 
+}
 
 .favorable {
     background-color: green;
@@ -75,5 +79,22 @@ section {
     padding: 5px 10px;
 }
 
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 
+}
 
+ul li {
+    border: 1px solid #ddd;
+   
+    margin-top: 5px;
+  
+    background-color: rgb(104, 178, 178);
+  
+}
+
+ul li:hover  {
+    background-color: azure;
+}
