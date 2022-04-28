@@ -92,7 +92,7 @@ function oneCall(lat, lon) {
             const day1= moment().add(1, 'days');
 
             console.log(day1.format('MMMM Do YYYY'))
-            day1 = moment().add(1, 'days');
+            // day1 = moment().add(1, 'days');
             day1temp.textContent = 'Temp: ' + data.daily[1].temp.day + "F";
             day1wind_speed.textContent = 'Wind: ' + data.daily[1].wind_speed + " mph";
             day1humidity.textContent = 'Humidity: ' + data.daily[1].humidity + "%";
