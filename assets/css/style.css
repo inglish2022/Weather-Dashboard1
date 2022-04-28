@@ -24,6 +24,10 @@ section {
     border-radius: 20px;
 }
 
+.card  {
+    background-color: rgb(104, 178, 178);
+}
+
 .search-button  {
     margin-left: 52px;
 }
