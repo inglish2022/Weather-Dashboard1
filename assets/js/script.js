@@ -70,6 +70,9 @@ function currentWeather(city) {
             var lon = data.coord.lon;
             oneCall(lat, lon)
         })
+
+        var currentCity = city;
+        $("#current-city").text(currentCity + " ");
 }
 
 
